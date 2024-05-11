@@ -5,6 +5,16 @@ This project focuses on sales forecasting using historical data from a retail co
 
 ## Data Set
 The dataset contains information about products, manufacturers, area codes, sourcing channels, product sizes, product types, months of sourcing, and sourcing costs. It spans from June 2020 to May 2021 for the training set, and June 2021 for the test set.
+Total Rows: 550,176
+Total Columns: 8
+ProductType
+Manufacturer
+Area Code
+Sourcing Channel
+Product Size
+Product Type
+Month of Sourcing
+Sourcing Cost(Target)
 
 ## Exploratory Data Analysis (EDA)
 The EDA process involves:
@@ -13,31 +23,33 @@ The EDA process involves:
 - Identifying outliers and applying strategies like winsorization and data transformations to handle them.
 
 ## Handling Outliers and Poor Data Quality
-For handling outliers and poor data quality:
-- Outliers are detected using statistical methods and visual inspection.
-- Strategies like winsorization, log transformations, and imputation are applied to address outliers and improve data quality.
+The analysis employed robust outlier detection methods such as Z-score and IQR, visualized outliers through boxplots, and managed them through trimming, capping, and binning, ensuring data integrity and enhancing analysis outcomes for informed decision-making.
 
 ## Forecasting Approaches
-Several approaches are considered for forecasting the June 2021 test set:
-1. Time series analysis using ARIMA or SARIMA models.
-2. Machine learning models such as Random Forest, Gradient Boosting, or LSTM networks.
-3. Ensemble methods combining multiple forecasting models.
 
-## Comparison of Approaches
-In the notebook, different forecasting approaches are implemented and compared:
-- ARIMA model: Utilizes historical sales data and seasonal patterns to forecast future sales.
-- Random Forest model: Learns from various features such as product type, manufacturer, and sourcing channel to predict sales.
-- Ensemble model: Combines predictions from multiple models to improve accuracy and robustness.
+1. Random Forest Regressor
+2. Gradient Boosting Regressor
+3. Extra Trees Regressor
+4. Support Vector Regressor (SVR)
+5. Linear Regression
+6. Ridge Regression
+7. Lasso Regression
+8. ElasticNet Regression
+9. K-Nearest Neighbors
+10. Decision Tree Regressor
+11. XGBoost Regressor
+12. LightGBM Regressor
+13. CatBoost Regressor
+14. LSTM Model
+15. Sequential Deep Learning Model
 
-## Final Approach
-The final approach involves using an ensemble model consisting of ARIMA and Random Forest models:
-- ARIMA captures time series patterns and seasonality.
-- Random Forest incorporates additional features and non-linear relationships for more accurate predictions.
-- Ensemble combines the strengths of both models to achieve a balanced and reliable sales forecast for June 2021.
+## The best performing model appears to be the XGBoost Regressor:
+
+Mean Squared Error (MSE): 970.81
+Mean Absolute Error (MAE): 15.93
+Root Mean Squared Error (RMSE): 31.15
+R-squared (R2) Score: 0.64
 
 ## Conclusion
 By leveraging Python and its libraries for data analysis, EDA, outlier handling, and forecasting, this project aims to provide valuable insights and accurate predictions to support business decision-making in the retail industry.
-
----
-
-Feel free to customize this README template based on the specifics of your project, additional details, or any other information you want to include.
+XGBoost is a powerful ensemble learning technique that effectively handles non-linearity, controls overfitting through regularization, and provides feature importance for better model interpretability. Its ability to handle missing values and scalability make it an efficient choice for robust predictive modeling on large datasets.
